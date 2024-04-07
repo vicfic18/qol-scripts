@@ -17,28 +17,19 @@
     header.parentElement.style.paddingLeft = "7rem";
     header.parentElement.insertBefore(maind, header);
 
-    const clickEvent = new MouseEvent("click", {
-        view: window,
-        bubbles: true,
-        cancelable: false,
-    });
-
-    document.addEventListener("keypress", function onEvent(event) {
+    document.addEventListener("keypress", (event) => {
         if (event.key === "d") {
             console.log("d pressed.");
-            document
-                .getElementsByClassName("next-btn")[0]
-                .dispatchEvent(clickEvent);
+            const nextBtn = document.querySelector(".next-btn");
+            nextBtn.click();
         } else if (event.key === "a") {
             console.log("a pressed.");
-            document
-                .getElementsByClassName("prev-btn")[0]
-                .dispatchEvent(clickEvent);
+            const prevBtn = document.querySelector(".prev-btn");
+            prevBtn.click();
         } else if (event.key === "s") {
             console.log("s pressed.");
-            document
-                .getElementsByClassName("check-btn")[0]
-                .dispatchEvent(clickEvent);
+            const checkBtn = document.querySelector(".check-btn");
+            checkBtn.click();
         }
     });
 })();
