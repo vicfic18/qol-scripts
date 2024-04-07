@@ -19,15 +19,15 @@
 
     document.addEventListener("keypress", (event) => {
         if (event.key === "d") {
-            console.log("d pressed.");
+            // console.log("d pressed.");
             const nextBtn = document.querySelector(".next-btn");
             nextBtn.click();
         } else if (event.key === "a") {
-            console.log("a pressed.");
+            // console.log("a pressed.");
             const prevBtn = document.querySelector(".prev-btn");
             prevBtn.click();
         } else if (event.key === "s") {
-            console.log("s pressed.");
+            // console.log("s pressed.");
             const checkBtn = document.querySelector(".check-btn");
             checkBtn.click();
         }
