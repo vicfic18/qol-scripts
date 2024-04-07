@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Marks QOL Improvements
 // @namespace    https://vicfic18.github.io/
-// @version      2024-04-04
+// @version      2024-04-07
 // @description  Adds keyboard shortcuts and shifts layout akin to NTA site.
 // @author       Varghese K James
 // @match        https://web.getmarks.app/marks-selected/*
@@ -9,32 +9,27 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
-    'use strict';
-    var maind = document.querySelector('main');
-    var header = document.querySelector('header');
+(function () {
+    "use strict";
+    const maind = document.querySelector("main");
+    const header = document.querySelector("header");
     header.parentElement.style.gridTemplateColumns = "75% 25%";
     header.parentElement.style.paddingLeft = "7rem";
     header.parentElement.insertBefore(maind, header);
 
-    var clickEvent = new MouseEvent("click", {
-    "view": window,
-    "bubbles": true,
-    "cancelable": false
+    document.addEventListener("keypress", (event) => {
+        if (event.key === "d") {
+            console.log("d pressed.");
+            const nextBtn = document.querySelector(".next-btn");
+            nextBtn.click();
+        } else if (event.key === "a") {
+            console.log("a pressed.");
+            const prevBtn = document.querySelector(".prev-btn");
+            prevBtn.click();
+        } else if (event.key === "s") {
+            console.log("s pressed.");
+            const checkBtn = document.querySelector(".check-btn");
+            checkBtn.click();
+        }
     });
-
-    document.addEventListener("keypress", function onEvent(event) {
-    if (event.key === "d") {
-      console.log("d pressed.");
-      document.getElementsByClassName("next-btn")[0].dispatchEvent(clickEvent);
-    }
-    else if (event.key === "a") {
-      console.log("a pressed.");
-      document.getElementsByClassName("prev-btn")[0].dispatchEvent(clickEvent);
-    }
-  	else if (event.key === "s") {
-      console.log("s pressed.");
-      document.getElementsByClassName("check-btn")[0].dispatchEvent(clickEvent);
-    }
-});
 })();
